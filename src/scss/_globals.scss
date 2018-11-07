@@ -17,10 +17,11 @@ header {
         ul {
             display: flex;
             justify-content: space-evenly;
+            cursor: pointer;
+        }
 
-            li {
-                display: inline;
-            }
+        li {
+            display: inline;
         }
     }
 }
@@ -33,42 +34,116 @@ main {
     margin-top: 5%;
     margin-left: 2%;
     margin-right: 2%;
+    }
 
-.beers {
+    .beers {
+        background: lightgrey;
+        justify-items: center;
+        text-align: center;
+        object-fit: contain;
+        grid-template-rows: 24rem;
+        
+        img {
+            max-height: 20em;
+            margin-top: 2em;
+        }
+
+        h1 {
+            font-family: "Open Sans Bold";
+            padding-top: 2rem;
+        }
+
+        p {
+            font-family: "Open Sans";
+            padding: 1rem;
+            height: 10rem;
+        }
+
+        .pH {
+            color: white;
+            }
+
+        li {
+            display:inline-block;
+            font-family: "Playfair Display";
+            padding: 1.5rem;
+
+            span {
+            display: block;
+            font-family: "Playfair Display Bold";
+            }   
+        }
+    }
+
+    .random-beer {
     background: lightgrey;
-    display: grid;
     justify-items: center;
     text-align: center;
     object-fit: contain;
-    grid-template-rows: 30rem;
-}
+
+        img {
+            padding-top: 2.5em;
+            max-height: 20em;
+        }
+    }
+
+    .findmeanotherbeer {
+    background: lightgrey;
+    text-align: center;
+
+    h1 {
+        font-family: "Open Sans Bold";
+        padding-top: 2rem;
+        }
+
+        h2 {
+        font-family: "Open Sans";
+        color: royalblue;
+        padding-top: 1rem;
+        }
+
+        p {
+        font-family: "Open Sans";
+        padding-top: 1rem;
+        height: 9rem;
+        }
+
+        .pH {
+        color: white;
+        }
+
+        li {
+        display:inline-block;
+        font-family: "Playfair Display";
+        padding: 1.5rem;
+        padding-top: 0rem;
+
+        span {
+        display: block;
+        font-family: "Playfair Display Bold";
+        }      
+        }
+
+        .ingredients {
+        background-color: royalblue;
+        font-family: "Open Sans Bold";
+        color: white;
+        height: 3rem;
+        width: 9rem;
+        margin: 2rem;
+        }
 }
 
-section img {
-    max-height: 100%;
-}
+.givemeanotherbeer {
 
-section h1 {
+    .givemeanotherbeerbutton {
+    background-color: orange;
     font-family: "Open Sans Bold";
-    padding-top: 2rem;
-}
-
-section p {
-    font-family: "Open Sans";
-    padding: 1rem;
-    height: 13rem;
-}
-
-section li {
-    display:inline-block;
-    font-family: "Playfair Display";
-    padding: 3rem;
-    padding-top: 0rem;
-
-    span {
-    display: block;
-    font-family: "Playfair Display Bold";
-    }   
+    color: white;
+    height: 3rem;
+    width: 11rem;
+    margin: 2rem;
+    }
 }
 
 footer {
@@ -80,50 +155,4 @@ footer {
     button {
         margin: 0.175rem;
     }
-}
-
-.random-beer {
-    background: lightgrey;
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    object-fit: contain;
-    grid-template-rows: 30rem;
-}
-
-section img {
-    max-height: 100%;
-}
-
-section h1 {
-    font-family: "Open Sans Bold";
-    padding-top: 2rem;
-}
-
-section h2 {
-    font-family: "Open Sans";
-    color: royalblue;
-}
-
-section p {
-    font-family: "Open Sans";
-    padding: 1rem;
-    height: 13rem;
-}
-
-section li {
-    display:inline-block;
-    font-family: "Playfair Display";
-    padding: 3rem;
-    padding-top: 0rem;
-
-    span {
-    display: block;
-    font-family: "Playfair Display Bold";
-    }   
-}
-
-.ingredients {
-background-color: royalblue;
-
 }
