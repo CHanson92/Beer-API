@@ -117,6 +117,7 @@ $('nav').on('click', '.quick-find', function () {
 });
 
 // Ajax for Quick Find Beer
+ingredients();
 function randombeer() {
     $('main').hide();
     $('aside').show();
@@ -137,11 +138,26 @@ function randombeer() {
             let abv = result[i].abv;
             let ibu = result[i].ibu;
             let ph = result[i].ph;
+            for (j = 0; j < result.length; j++) {
+                let malt = result[i].ingredients.malt[j];
+                amount = result[j].amount;
+                unit = result[j].unit;
+                value = result[j].value;
+            };
+            for (k = 0; k < result.length; k++) {
+                let hops = result[i].ingredients.hops[k];
+                name2 = result[k].name;
+                amount2 = result[k].amount;
+            };
+            let yeast = result[i].ingredients.yeast[j];
             let $section = $('<section class="random-beer"></section>');
             let $section1 = $('<section class="randombeerinfo"></section>');
             let $section2 = $('<section class="givemeanotherbeer"></section>');
             let $ul = $('<ul></ul>');
             let $pH = $('<li class="pH">pH<span>' + ph + '</span></li>');
+            let $modal = $('<div class="modal"></div>');
+            let $modalcontent = $('<div class="modalcontent><span class= "close"></span></div>');
+            let $ingredients = $('<div></div>');
             $section.append('<img src="' + imageUrl + '" />');
             $section1.append('<h1>' + name + '</h1>');
             $section1.append('<h2>' + tagline + '</h2>');
@@ -162,6 +178,13 @@ function randombeer() {
             $('aside').append($section);
             $('aside').append($section1);
             $('aside').append($section2);
+            $($ingredients).append(malt);
+            $($ingredients).append(hops);
+            $($ingredients).append(yeast);
+            $($modalcontent).append($ingredients);
+            $($modal).append($modalcontent);
+            $('aside').append($modal);
+            console.log(result[i]);
         }
     }).fail(function (err) {
         throw err;
@@ -174,5 +197,14 @@ $('aside').on('click', '.givemeanotherbeerbutton', function () {
 });
 
 // Function for Ingredients Modal
+
+function ingredients() {
+    $('aside').on('click', '.ingredients', function () {
+        $('.modal').show();
+    });
+    $('aside').on('click', '.close', function () {
+        $('.modal').hide();
+    });
+}
 
 },{}]},{},[1]);
