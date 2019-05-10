@@ -1,0 +1,172 @@
+@mixin header {
+  background: black;
+  color: white;
+  font-family: "Open Sans Bold";
+  padding: 1.875em;
+  text-align: center;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    padding-top: 1em;
+  }
+
+  li {
+    display: inline;
+  }
+}
+
+@mixin main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1.5%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+@mixin beers {
+  background: lightgrey;
+  text-align: center;
+  object-fit: contain;
+
+  img {
+    max-height: 20em;
+    margin-top: 2em;
+  }
+
+  h1 {
+    font-family: "Open Sans Bold";
+    padding-top: 2rem;
+  }
+
+  p {
+    font-family: "Open Sans";
+    padding: 1rem;
+    height: 12rem;
+  }
+
+  .pH {
+    color: white;
+  }
+
+  li {
+    display: inline-block;
+    font-family: "Playfair Display";
+    padding: 1.5rem;
+
+    span {
+      display: block;
+      font-family: "Playfair Display Bold";
+    }
+  }
+}
+
+@mixin aside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .random-beer {
+    grid-column: 1/2;
+    background: lightgrey;
+    margin-top: 2em;
+    margin-left: 2em;
+    height: 25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 20em;
+    }
+
+    p {
+      font-family: "Open Sans";
+    }
+  }
+
+  .randombeerinfo {
+    grid-column: 2/2;
+    background: lightgrey;
+    margin-right: 2em;
+    margin-top: 2em;
+    text-align: center;
+    height: 25em;
+
+    h1 {
+      font-family: "Open Sans Bold";
+      padding-top: 2rem;
+    }
+
+    h2 {
+      font-family: "Open Sans";
+      color: royalblue;
+      padding-top: 1rem;
+    }
+
+    p {
+      font-family: "Open Sans";
+      padding-top: 1rem;
+      height: 9rem;
+    }
+
+    .pH {
+      color: white;
+    }
+
+    li {
+      display: inline-block;
+      font-family: "Playfair Display";
+      padding: 1.5rem;
+      padding-top: 0rem;
+
+      span {
+        display: block;
+        font-family: "Playfair Display Bold";
+      }
+    }
+
+    .ingredients {
+      background-color: royalblue;
+      font-family: "Open Sans Bold";
+      color: white;
+      height: 3rem;
+      width: 9rem;
+      margin: 2rem;
+    }
+  }
+
+  .givemeanotherbeer {
+    grid-column: 1/3;
+    text-align: center;
+
+    .givemeanotherbeerbutton {
+      background-color: orange;
+      font-family: "Open Sans Bold";
+      color: white;
+      height: 3rem;
+      width: 11rem;
+      margin: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+@mixin footer {
+  background: white;
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+
+  button {
+    border: 1px solid orange;
+    font-size: 1em;
+    color: white;
+    margin: 0.175rem;
+    border-radius: 1em;
+    background-color: orange;
+    cursor: pointer;
+  }
+}

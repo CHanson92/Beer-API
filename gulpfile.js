@@ -1,60 +1,58 @@
-var gulp = require("gulp");
-var gutil = require("gulp-util");
-var notify = require("gulp-notify");
-var source = require("vinyl-source-stream");
-var buffer = require("vinyl-buffer");
-var browserify = require("browserify");
-var watchify = require("watchify");
-var babelify = require("babelify");
-var concat = require("gulp-concat");
-var uglifycss = require("gulp-uglifycss");
-var sass = require("gulp-sass");
-var browserSync = require("browser-sync").create();
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const notify = require('gulp-notify');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const browserify = require('browserify');
+const watchify = require('watchify');
+const babelify = require('babelify');
+const concat = require('gulp-concat');
+const uglifycss = require('gulp-uglifycss');
+const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
 
-var ENTRY_FILE = "./src/js/index.js";
-var OUTPUT_DIR = "./build/js";
-var OUTPUT_FILE = "bundle.js";
-var DELAY = 50;
+const ENTRY_FILE = './src/js/index.js';
+const OUTPUT_DIR = './build/js';
+const OUTPUT_FILE = 'bundle.js';
+const DELAY = 50;
 
-gulp.task("browserify", function () {
-    var b = browserify({ entries: [ ENTRY_FILE ] }).transform(babelify);
+gulp.task('browserify', () => {
+  const b = browserify({ entries: [ENTRY_FILE] }).transform(babelify);
 
-    function bundle() {
-        b.bundle()
-            .on("log", gutil.log)
-            .on("error", notify.onError())
-            .pipe(source(OUTPUT_FILE))
-            .pipe(buffer())
-            .pipe(gulp.dest(OUTPUT_DIR))
-            .pipe(browserSync.reload({ stream: true }));
-    }
+  function bundle() {
+    b.bundle()
+      .on('log', gutil.log)
+      .on('error', notify.onError())
+      .pipe(source(OUTPUT_FILE))
+      .pipe(buffer())
+      .pipe(gulp.dest(OUTPUT_DIR))
+      .pipe(browserSync.reload({ stream: true }));
+  }
 
-    watchify(b, { delay: DELAY }).on("update", bundle);
-    bundle();
+  watchify(b, { delay: DELAY }).on('update', bundle);
+  bundle();
 });
 
-gulp.task("serve", function () {
-    browserSync.init({
-        server: {
-            baseDir: "./build"
-        }
-    });
-    gulp.watch('./src/scss/*.scss', ['scss']);
-    gulp.watch(['./build/*.html', './build/css/*.css', './build/js/*.js']).on('change', browserSync.reload);
+gulp.task('serve', () => {
+  browserSync.init({
+    server: {
+      baseDir: './build',
+    },
+  });
+  gulp.watch('./src/scss/*.scss', ['scss']);
+  gulp.watch(['./build/*.html', './build/css/*.css', './build/js/*.js']).on('change', browserSync.reload);
 
 });
 
-gulp.task('scss', function () {
-    return gulp.src('./src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(concat('build.css'))
-        .pipe(uglifycss())
-        .pipe(gulp.dest('./build/css/'));
+gulp.task('scss', () => gulp.src('./src/scss/*.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(concat('build.css'))
+  .pipe(uglifycss())
+  .pipe(gulp.dest('./build/css/')));
+
+gulp.task('copy', () => {
+  gulp.src('./images/*.*').pipe(gulp.dest('./build/images'));
+  gulp.src('./fonts/*.*').pipe(gulp.dest('./build/fonts'));
 });
 
-gulp.task("copy", function() {
-	gulp.src("./images/*.*").pipe(gulp.dest("./build/images"));
-	gulp.src("./fonts/*.*").pipe(gulp.dest("./build/fonts"));
-	});
-
-	gulp.task("default", ["browserify", "serve", "copy"]);
+gulp.task('default', ['browserify', 'serve', 'copy']);
