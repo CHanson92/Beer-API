@@ -224,42 +224,43 @@ export default {
 
 <style lang="scss" scoped>
 form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     padding: 1em;
+    text-align: center;
     background: #f2f2f2;
     h1 {
-        grid-column: 1/3;
         padding-bottom: 0.25em;
         border-bottom: 1px gray solid;
         color: #1b81cb;
+    }
+    .name,
+    .hops {
+        input {
+            margin-left: 1em;
+        }
     }
     .name,
     .hops,
     .abv,
     .ibu,
     .ebc {
-        justify-self: center;
         padding: 0.5em;
     }
     input {
         padding: 0.5em;
-        margin-left: 1em;
     }
     .abv,
     .ibu,
     .ebc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         input {
             width: 7em;
+            margin: 0.5em;
         }
     }
-    .ebc {
-        grid-column: 1/3;
-    }
     input[type='submit'] {
-        grid-column: 1/3;
-        grid-row: 5;
-        justify-self: center;
         cursor: pointer;
         margin-top: 1em;
         padding: 0.75em 2em;
@@ -328,6 +329,40 @@ form {
 }
 
 @media screen and (min-width: 600px) {
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: inherit;
+
+        h1 {
+            grid-column: 1/3;
+        }
+
+        .name,
+        .hops,
+        .abv,
+        .ibu,
+        .ebc {
+            justify-self: center;
+        }
+
+        .abv,
+        .ibu,
+        .ebc {
+            flex-direction: inherit;
+        }
+
+        .ebc {
+            grid-column: 1/3;
+        }
+
+        input[type='submit'] {
+            grid-column: 1/3;
+            grid-row: 5;
+            justify-self: center;
+        }
+    }
+
     .beer {
         display: grid;
         grid-template-columns: 1fr 1fr;
