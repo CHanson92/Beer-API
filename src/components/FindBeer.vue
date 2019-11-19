@@ -37,7 +37,7 @@
                 />
                 <input v-model="ebc_lt" type="number" placeholder="less than" />
             </div>
-            <input type="submit" value="Find a Beer" />
+            <button class="submit" type="submit">Find a Beer</button>
         </form>
         <transition name="slide-fade">
             <div class="errors" v-if="errors.length">
@@ -260,7 +260,7 @@ form {
             margin: 0.5em;
         }
     }
-    input[type='submit'] {
+    .submit {
         cursor: pointer;
         margin-top: 1em;
         padding: 0.75em 2em;
@@ -356,7 +356,7 @@ form {
             grid-column: 1/3;
         }
 
-        input[type='submit'] {
+        .submit {
             grid-column: 1/3;
             grid-row: 5;
             justify-self: center;
@@ -418,7 +418,7 @@ form {
             grid-column: inherit;
         }
 
-        input[type='submit'] {
+        .submit {
             grid-column: 1/5;
         }
     }
