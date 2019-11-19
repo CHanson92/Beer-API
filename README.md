@@ -3,9 +3,8 @@
 ----
 ## What is this project?
 
-> This is a website that imports Punk API into a easy to use function that shows different beers.
 
-This was originally created as a project in RED Academy using HTML, CSS, SASS, Javascript & jQuery.
+This was originally created as a project in RED Academy using HTML, CSS, SASS, Javascript & jQuery. The purpose of the project was to create a website that showed beers from the Punk API.
 
 I have modernised it to run as a Vue app using Vue-CLI.
 
