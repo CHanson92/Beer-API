@@ -2,7 +2,7 @@
     <div id="app">
         <header>
             <img alt="Beer logo" src="./assets/images/logo.png" />
-            <div class="buttons">
+            <nav class="buttons">
                 <button
                     v-for="tab in tabs"
                     :key="tab.name"
@@ -11,7 +11,7 @@
                 >
                     {{ tab.name }}
                 </button>
-            </div>
+            </nav>
         </header>
 
         <transition name="slide-fade">
