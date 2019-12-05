@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/Beer-API',
+    publicPath: '/Beer-API/',
     configureWebpack: {
         devtool: 'source-map'
     }
