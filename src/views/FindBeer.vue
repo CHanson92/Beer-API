@@ -223,234 +223,236 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-form {
-    padding: 1em;
-    text-align: center;
-    background: #f2f2f2;
-    h1 {
-        padding-bottom: 0.25em;
-        border-bottom: 1px gray solid;
-        color: #1b81cb;
-    }
-    .name,
-    .hops {
-        input {
-            margin-left: 1em;
-        }
-    }
-    .name,
-    .hops,
-    .abv,
-    .ibu,
-    .ebc {
-        padding: 0.5em;
-    }
-    input {
-        padding: 0.5em;
-    }
-    .abv,
-    .ibu,
-    .ebc {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        input {
-            width: 7em;
-            margin: 0.5em;
-        }
-    }
-    .submit {
-        cursor: pointer;
-        margin-top: 1em;
-        padding: 0.75em 2em;
-        border: none;
-        font-size: 1em;
-        background: #1b81cb;
-        color: white;
-    }
-}
-.beer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    text-align: center;
-    margin-top: 2em;
-    img {
-        height: 15em;
-        max-width: 100%;
-    }
-    .info {
-        h3 {
+section {
+    form {
+        padding: 1em;
+        text-align: center;
+        background: #f2f2f2;
+        h1 {
+            padding-bottom: 0.25em;
+            border-bottom: 1px gray solid;
             color: #1b81cb;
         }
-    }
-    .beer-properties {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        p {
-            display: flex;
-            flex-direction: column;
-            padding: 1em 1.5em;
+        .name,
+        .hops {
+            input {
+                margin-left: 1em;
+            }
         }
-        .pH {
-            color: white;
-        }
-    }
-    .get-ingredients {
-        cursor: pointer;
-        padding: 1em 3em;
-        border: none;
-        font-size: 1em;
-        background: #1b81cb;
-        color: white;
-    }
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 0.5s;
-    }
-    .fade-enter,
-    .fade-leave-to {
-        opacity: 0;
-    }
-    .ingredients {
-        margin-top: 1em;
-    }
-}
-.errors {
-    margin-top: 2em;
-    text-align: center;
-    color: red;
-    li {
-        list-style: none;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        text-align: inherit;
-
-        h1 {
-            grid-column: 1/3;
-        }
-
         .name,
         .hops,
         .abv,
         .ibu,
         .ebc {
-            justify-self: center;
+            padding: 0.5em;
         }
-
+        input {
+            padding: 0.5em;
+        }
         .abv,
         .ibu,
         .ebc {
-            flex-direction: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            input {
+                width: 7em;
+                margin: 0.5em;
+            }
         }
-
-        .ebc {
-            grid-column: 1/3;
-        }
-
         .submit {
-            grid-column: 1/3;
-            grid-row: 5;
-            justify-self: center;
+            cursor: pointer;
+            margin-top: 1em;
+            padding: 0.75em 2em;
+            border: none;
+            font-size: 1em;
+            background: #1b81cb;
+            color: white;
         }
     }
-
     .beer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        text-align: center;
+        margin-top: 2em;
+        img {
+            height: 15em;
+            max-width: 100%;
+        }
         .info {
-            grid-column: 2;
+            h3 {
+                color: #1b81cb;
+            }
         }
-
         .beer-properties {
-            grid-column: 1/3;
-            grid-row: 2;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            p {
+                display: flex;
+                flex-direction: column;
+                padding: 1em 1.5em;
+            }
+            .pH {
+                color: white;
+            }
         }
-
         .get-ingredients {
-            grid-column: 1/3;
-            justify-self: center;
+            cursor: pointer;
+            padding: 1em 3em;
+            border: none;
+            font-size: 1em;
+            background: #1b81cb;
+            color: white;
         }
-
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s;
+        }
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
         .ingredients {
+            margin-top: 1em;
+        }
+    }
+    .errors {
+        margin-top: 2em;
+        text-align: center;
+        color: red;
+        li {
+            list-style: none;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        form {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-column: 1/3;
-            justify-self: stretch;
-        }
-    }
-}
+            grid-template-columns: 1fr 1fr;
+            text-align: inherit;
 
-@media screen and (min-width: 900px) {
-    form {
-        grid-template-columns: 1fr 1fr 1fr;
-
-        h1 {
-            grid-column: 1/5;
-        }
-
-        .name {
-            grid-column: 1/3;
-            grid-row: 2;
-        }
-
-        .hops {
-            grid-column: 2/4;
-            grid-row: 2;
-        }
-
-        .abv,
-        .ibu,
-        .ebc {
-            grid-row: 3;
-        }
-
-        .ebc {
-            grid-column: inherit;
-        }
-
-        .submit {
-            grid-column: 1/5;
-        }
-    }
-
-    .beers {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        .beer {
-            grid-template-columns: 1fr;
-
-            .image,
-            .no-image {
+            h1 {
                 grid-column: 1/3;
             }
 
+            .name,
+            .hops,
+            .abv,
+            .ibu,
+            .ebc {
+                justify-self: center;
+            }
+
+            .abv,
+            .ibu,
+            .ebc {
+                flex-direction: inherit;
+            }
+
+            .ebc {
+                grid-column: 1/3;
+            }
+
+            .submit {
+                grid-column: 1/3;
+                grid-row: 5;
+                justify-self: center;
+            }
+        }
+
+        .beer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
             .info {
-                p {
-                    margin: 1em;
-                }
+                grid-column: 2;
             }
 
             .beer-properties {
-                grid-row: 3;
+                grid-column: 1/3;
+                grid-row: 2;
+            }
+
+            .get-ingredients {
+                grid-column: 1/3;
+                justify-self: center;
+            }
+
+            .ingredients {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column: 1/3;
+                justify-self: stretch;
             }
         }
     }
-}
 
-@media screen and (min-width: 1200px) {
-    .beers {
-        grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (min-width: 900px) {
+        form {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            h1 {
+                grid-column: 1/5;
+            }
+
+            .name {
+                grid-column: 1/3;
+                grid-row: 2;
+            }
+
+            .hops {
+                grid-column: 2/4;
+                grid-row: 2;
+            }
+
+            .abv,
+            .ibu,
+            .ebc {
+                grid-row: 3;
+            }
+
+            .ebc {
+                grid-column: inherit;
+            }
+
+            .submit {
+                grid-column: 1/5;
+            }
+        }
+
+        .beers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .beer {
+                grid-template-columns: 1fr;
+
+                .image,
+                .no-image {
+                    grid-column: 1/3;
+                }
+
+                .info {
+                    p {
+                        margin: 1em;
+                    }
+                }
+
+                .beer-properties {
+                    grid-row: 3;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .beers {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }
 </style>

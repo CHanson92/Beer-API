@@ -69,11 +69,11 @@
                         </div>
                     </div>
                 </transition>
+                <button class="pick-another" @click="getRandomBeer">
+                    Pick another beer
+                </button>
             </div>
         </transition>
-        <button class="pick-another" @click="getRandomBeer">
-            Pick another beer
-        </button>
     </section>
 </template>
 
@@ -107,6 +107,7 @@ export default {
 <style scoped lang="scss">
 section {
     text-align: center;
+
     .fade-enter-active,
     .fade-leave-active {
         transition: opacity 0.5s;
@@ -115,6 +116,7 @@ section {
     .fade-leave-to {
         opacity: 0;
     }
+
     .beer {
         display: flex;
         justify-content: center;
@@ -152,6 +154,10 @@ section {
         .ingredients {
             margin-top: 1em;
         }
+
+        .pick-another {
+            margin-top: 1em;
+        }
     }
     button {
         cursor: pointer;
@@ -175,7 +181,8 @@ section {
                 grid-row: 2;
             }
 
-            .get-ingredients {
+            .get-ingredients,
+            .pick-another {
                 grid-column: 1/3;
                 justify-self: center;
             }
