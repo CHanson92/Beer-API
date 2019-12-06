@@ -5,31 +5,33 @@ Vue.use(VueRouter);
 
 const routes = [
     {
+        path: '/',
+        name: 'home',
+        component: () => import(/* webpackChunkName: "Home" */ '../views/Home')
+    },
+    {
         path: '/all-beers',
         name: 'all beers',
         component: () =>
-            import(
-                /* webpackChunkName: "random beer" */ '../views/AllBeers.vue'
-            )
+            import(/* webpackChunkName: "AllBeers" */ '../views/AllBeers')
     },
     {
         path: '/random-beer',
         name: 'random beer',
         component: () =>
-            import(
-                /* webpackChunkName: "random beer" */ '../views/RandomBeer.vue'
-            )
+            import(/* webpackChunkName: "RandomBeer" */ '../views/RandomBeer')
     },
     {
         path: '/find-beer',
         name: 'find beer',
         component: () =>
-            import(/* webpackChunkName: "find beer" */ '../views/FindBeer.vue')
+            import(/* webpackChunkName: "FindBeer" */ '../views/FindBeer')
     }
 ];
 
 const router = new VueRouter({
     mode: 'history',
+    base: '/Beer-API/',
     routes
 });
 
