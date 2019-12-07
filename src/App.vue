@@ -36,16 +36,13 @@ export default {
         display: flex;
         background: black;
 
-        img {
-            max-width: 15em;
-        }
-
         nav {
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex-direction: column;
             flex: 2;
+            text-align: center;
             margin-bottom: 0.5em;
 
             a {
@@ -72,7 +69,6 @@ export default {
             img {
                 grid-column: 1/3;
                 justify-self: center;
-                max-width: 20em;
             }
 
             nav {

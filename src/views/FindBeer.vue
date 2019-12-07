@@ -87,11 +87,11 @@
                         pH <span>{{ beer.ph }}</span>
                     </p>
                 </div>
-                <button class="get-ingredients" @click="isHidden = !isHidden">
+                <button class="get-ingredients" @click="toggle(beer.id)">
                     Ingredients
                 </button>
                 <transition name="fade" mode="out-in">
-                    <div class="ingredients" v-if="!isHidden">
+                    <div class="ingredients" v-show="selected === beer.id">
                         <div class="malt">
                             <strong>Malt</strong>
                             <p
@@ -142,7 +142,8 @@ export default {
             ebc_gt: '',
             ebc_lt: '',
             beers: [],
-            isHidden: true
+            selected: '',
+            totalHops: []
         };
     },
     methods: {
@@ -217,6 +218,9 @@ export default {
             if (this.beers.length === 0) {
                 alert('Sorry there are no results, please try again!');
             }
+        },
+        toggle(index) {
+            this.selected = this.selected == index ? null : index;
         }
     }
 };
@@ -367,6 +371,7 @@ section {
         .beer {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            grid-auto-rows: minmax(min-content);
 
             .info {
                 grid-column: 2;
@@ -430,7 +435,6 @@ section {
 
             .beer {
                 grid-template-columns: 1fr;
-
                 .image,
                 .no-image {
                     grid-column: 1/3;
