@@ -42,10 +42,10 @@ export default {
         }
 
         nav {
-            justify-self: flex-end;
+            justify-self: flex-start;
             display: flex;
             flex-direction: column;
-            margin-right: 1em;
+            margin-left: 1em;
             margin-bottom: 0.5em;
 
             a {
