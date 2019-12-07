@@ -33,16 +33,19 @@ export default {
         opacity: 0;
     }
     header {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr;
         background: black;
 
+        img {
+            justify-self: center;
+        }
+
         nav {
+            justify-self: flex-end;
             display: flex;
-            justify-content: space-around;
-            align-items: center;
             flex-direction: column;
-            flex: 2;
-            text-align: center;
+            margin-right: 1em;
             margin-bottom: 0.5em;
 
             a {
@@ -73,6 +76,8 @@ export default {
 
             nav {
                 grid-column: 2;
+                justify-self: stretch;
+                justify-content: space-around;
                 flex-direction: row;
             }
         }
